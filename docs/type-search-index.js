@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"se.his.it401g.todo","l":"AbstractTask"},{"l":"All Classes","url":"allclasses-index.html"},{"p":"se.his.it401g.todo","l":"HomeTask"},{"p":"se.his.it401g.todo","l":"Task"},{"p":"se.his.it401g.todo","l":"TaskListener"},{"p":"se.his.it401g.todo","l":"WorkTask"}]
