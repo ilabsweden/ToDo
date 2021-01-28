@@ -23,5 +23,58 @@ public class Test {
 	}
 }
 ```
+## Loading classes dynamically
+
+Since task types are specified as program arguments and not known until the application executes, the corresponding classes can not be written explicitly in the source code. The only thing we know beforehand is that specified task types must implement the `Task.java` interface. Classes are loaded using the `Class.forName` method. 
+
+You may use the following code to load a class type and instanciate an object from the loaded class. This code declares a class named `TaskTypeLoader` with a static method `TaskTypeLoader.newTask` that will return an instance of the specified task type. 
+
+For example, an instance of `WorkTask` can be created like this: `Task t = TaskTypeLoader.newTask("se.his.it401g.todo.WorkTask");`.
+
+```java
+import java.lang.reflect.InvocationTargetException;
+
+public class TaskTypeLoader {
+
+	/**
+	 * Returns a new instance of specified task type. 
+	 * @param taskTypeName
+	 * @return new task object
+	 */
+	public static Task newTask(String taskTypeName) {
+		Class<Task> taskType = loadTaskType(taskTypeName);
+		if (taskType == null) return null;
+		try {
+			return taskType.getDeclaredConstructor().newInstance();
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException	| NoSuchMethodException | SecurityException e) {
+			System.out.println("Unable to create an instance of " + taskType.getSimpleName());
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 * Loads specified task type class. The corresponding class must be available in the application's class path. 
+	 * @param className is the name of the class to be loaded, including package. 
+	 * @return the loaded class. 
+	 */
+	@SuppressWarnings("unchecked")
+	public static Class<Task> loadTaskType(String className) {
+		try {
+			Class<?> taskType = Class.forName(className);
+			if (Task.class.isAssignableFrom(taskType)) {
+				return (Class<Task>) taskType;
+			} else {
+				System.out.println("Class " + taskType.getSimpleName() + " does not implement the Task.java interface.");
+			}
+		} catch (ReflectiveOperationException e) {
+			System.out.println("Task type " + className + " could not be loaded.");
+		}
+		return null;
+	}
+}
+```
+
+You may copy-paste this code into your application or write your own solution. This code is merely provided as an example. 
 
 Good luck!
