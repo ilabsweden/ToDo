@@ -12,14 +12,14 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 /**
- * Implements a simple work task type, following the Task.java interface class.
+ * Implements a simple study task type, following the Task.java interface class.
  *  
  * This file licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons (CC) BY 4.0 license</a>.
  * 
  * @author Dr. Erik Billing, University of Skovde
  *
  */
-public class WorkTask extends JPanel implements Task {
+public class StudyTask extends JPanel implements Task {
 
 	/**
 	 * The editable text field. 
@@ -44,7 +44,7 @@ public class WorkTask extends JPanel implements Task {
 	/**
 	 * This is the constructor for the task, initiating the GUI component for the task. Several listeners are used to react to various events in the GUI.  
 	 */
-	public WorkTask() {
+	public StudyTask() {
 		super(new BorderLayout());
 		this.text = new JTextField("New task",20);
 		this.textLabel = new JLabel();
@@ -76,7 +76,7 @@ public class WorkTask extends JPanel implements Task {
 
 	@Override
 	public String getTaskType() {
-		return "Work";
+		return "Study";
 	}
 
 	@Override
