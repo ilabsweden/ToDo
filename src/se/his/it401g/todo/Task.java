@@ -24,6 +24,7 @@ public interface Task {
 	
 	/**
 	 * Sets the task listener on which this task reports various events. 
+	 * @param t the listener to use.
 	 */
 	public void setTaskListener(TaskListener t);
 	

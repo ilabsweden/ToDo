@@ -11,12 +11,27 @@ import java.awt.event.ItemListener;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+/**
+ * This class implements listeners for different input events on the task GUI. You may use this class for your custom task type, or create another listener.
+ * 
+ * For example, when you change the test of a task and press enter, the keyPress method is called to switch from the input field to a JLabel displaying the text.
+ *  
+ * This file licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons (CC) BY 4.0 license</a>.
+ * 
+ * @author Dr. Erik Billing, University of Skovde
+ *
+ */
 public class TaskInputListener implements KeyListener, MouseListener, ActionListener, ItemListener {
 
 	private Task task;
 	private JLabel textLabel;
 	private JTextField text;
 
+	/**
+	 * @param task is the task object that this listener is responsible for. 
+	 * @param text is the text input field that this listener receives events from.
+	 * @param textLabel is the text label that this listener receives events from.
+	 */
 	public TaskInputListener(Task task, JTextField text, JLabel textLabel) {
 		this.task = task;
 		this.text = text;

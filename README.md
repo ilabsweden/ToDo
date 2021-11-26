@@ -1,4 +1,4 @@
-# ToDo
+ ToDo
 Template code for assignment *ToDo* on course *IT401G - Object Oriented Programming, University of Skövde, Sweden.*
 
 Download this repository from GitHub using the green button labeled **Code**. In the downloaded archive you will fine this readme file, a documentation foler, and a *src*-folder containing the java-file you will need for the assignment. If you prefer, you can of course also clone this repository using Git. 
