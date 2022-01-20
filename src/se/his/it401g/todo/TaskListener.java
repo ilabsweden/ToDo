@@ -1,5 +1,6 @@
 package se.his.it401g.todo;
 
+
 /**
  * This is a listener interface where task objects can report changes to the main application.  
  *  
